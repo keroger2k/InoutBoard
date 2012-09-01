@@ -1,0 +1,43 @@
+﻿@model InoutBoard.Web.Models.RegisterModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <h2>Create a new account.</h2>
+</hgroup>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+  
+    <div class="control-group">
+        @Html.LabelFor(m => m.UserName, "Email", new { @class = "control-label" })
+        <div class="controls">
+            @Html.TextBoxFor(m => m.UserName, new { id = "inputEmail" })
+        </div>
+    </div>
+    <div class="control-group">
+        @Html.LabelFor(m => m.UserName, "Password", new { @class = "control-label" })
+        <div class="controls">
+            @Html.TextBoxFor(m => m.Password, new { id = "Password" })
+        </div>
+    </div>
+    <div class="control-group">
+        @Html.LabelFor(m => m.UserName, "Confirm Password", new { @class = "control-label" })
+        <div class="controls">
+            @Html.TextBoxFor(m => m.ConfirmPassword, new { id = "ConfirmPassword" })
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="controls">
+            <button type="submit" class="btn">Sign in</button>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
