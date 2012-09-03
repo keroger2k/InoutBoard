@@ -1,0 +1,11 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="span3">Sidebar</div>
+    <div class="span9">
+        @RenderSection("mystatus", required: false)
+        @RenderBody()
+    </div>
+</div>
+
