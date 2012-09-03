@@ -1,4 +1,4 @@
-﻿@model InoutBoard.Web.Models.RegisterModel
+﻿@model InoutBoard.Core.Models.RegisterModel
 @{
     ViewBag.Title = "Register";
 }
@@ -12,11 +12,17 @@
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary()
-  
+
     <div class="control-group">
         @Html.LabelFor(m => m.UserName, "Email", new { @class = "control-label" })
         <div class="controls">
             @Html.TextBoxFor(m => m.UserName, new { id = "inputEmail" })
+        </div>
+    </div>
+    <div class="control-group">
+        @Html.LabelFor(m => m.Fullname, "Fullname", new { @class = "control-label" })
+        <div class="controls">
+            @Html.TextBoxFor(m => m.Fullname, new { id = "inputFullname" })
         </div>
     </div>
     <div class="control-group">
