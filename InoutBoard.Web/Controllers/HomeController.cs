@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InoutBoard.Core.Infrastructure.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,12 +9,17 @@ namespace InoutBoard.Web.Controllers
 {
     public class HomeController : Controller
     {
-        [Authorize]
+        private readonly IUserRepository _userRepo;
+
+        public HomeController(IUserRepository userRepo)
+        {
+            _userRepo = userRepo;
+        }
+
         public ActionResult Index()
         {
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-
-            return View();
+            var users = _userRepo.GetAll();
+            return View(users);
         }
     }
 }

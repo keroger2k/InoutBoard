@@ -11,6 +11,11 @@ namespace InoutBoard.Web
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/signalr").Include(
+                        "~/Scripts/jquery.signalR-{version}.js",
+                        "~/signalr/hubs",
+                        "~/Scripts/status.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/twitter").Include(
                         "~/Scripts/bootstrap.js"));
 

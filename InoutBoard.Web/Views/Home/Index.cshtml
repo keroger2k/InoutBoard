@@ -1,13 +1,15 @@
-﻿@{
+﻿@model IEnumerable<InoutBoard.Core.Models.UserProfile>
+@{
     ViewBag.Title = "Home Page";
 }
-@section mystatus {
-    <section>
-       Current user status
-    </section>
-}
 <div>
+    <ul id="messages">
 
-    <p>other stuff.</p>
-
+    </ul>
+   @* <ul>
+        @foreach (var user in Model)
+        {
+            <li>@user.UserName</li>
+        }
+    </ul>*@
 </div>
