@@ -4,13 +4,13 @@
 
     var status = $.connection.status;
 
-    status.joined = function (id, when) {
+    status.joined = function (id, email, when) {
 
         if ($.connection.hub.id === id) {
-            addMessage(id, 'blue');
+            addMessage(email + ' : ' + id, 'blue');
         }
 
-        addMessage(id + ' joined at ' + when, 'green');
+        addMessage(email + ' : ' + id + ' joined at ' + when, 'green');
     };
 
     status.rejoined = function (id, when) {
