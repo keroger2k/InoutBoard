@@ -18,9 +18,9 @@ namespace InoutBoard.Web
             //    clientId: "",
             //    clientSecret: "");
 
-            //OAuthWebSecurity.RegisterTwitterClient(
-            //    consumerKey: "",
-            //    consumerSecret: "");
+            OAuthWebSecurity.RegisterTwitterClient(
+                consumerKey: "nd5JrgKNblmlBA7aGhqNg",
+                consumerSecret: "WH5UT8FxvidrLaiAAxd9WQLY0TCeRisatMfEjBCze4");
 
             //OAuthWebSecurity.RegisterFacebookClient(
             //    appId: "",

@@ -16,6 +16,7 @@ namespace InoutBoard.Web.App_Start
     using System.Web.Routing;
 
     using SignalR;
+    using SignalR.Ninject;
 
     public static class NinjectWebCommon 
     {
@@ -29,6 +30,8 @@ namespace InoutBoard.Web.App_Start
             DynamicModuleUtility.RegisterModule(typeof(OnePerRequestHttpModule));
             DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
             bootstrapper.Initialize(CreateKernel);
+            var resolver = new NinjectDependencyResolver(bootstrapper.Kernel);
+            RouteTable.Routes.MapHubs(resolver);
         }
         
         /// <summary>
@@ -50,9 +53,6 @@ namespace InoutBoard.Web.App_Start
             kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
             kernel.Bind<IUserRepository>().To<UserRepository>();
             kernel.Bind<IDatabaseFactory>().To<DatabaseFactory>();
-
-            RouteTable.Routes.MapHubs(new SignalR.Ninject.NinjectDependencyResolver(kernel));
-            
             RegisterServices(kernel);
             return kernel;
         }
