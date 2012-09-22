@@ -1,5 +1,4 @@
 ﻿using DotNetOpenAuth.AspNet;
-using InoutBoard.Core.Infrastructure.Filters;
 using InoutBoard.Core.Infrastructure.Repositories;
 using InoutBoard.Core.Models;
 using Microsoft.Web.WebPages.OAuth;
@@ -13,7 +12,6 @@ using WebMatrix.WebData;
 namespace InoutBoard.Web.Controllers
 {
     [Authorize]
-    [InitializeSimpleMembership]
     public class AccountController : Controller
     {
         private readonly IUserRepository userRepository;
@@ -269,12 +267,12 @@ namespace InoutBoard.Web.Controllers
             if (ModelState.IsValid)
             {
                 // Insert a new user into the database
-                UserProfile user = userRepository.GetUserByName(model.UserName);
+                BoardUser user = userRepository.GetUserByEmail(model.UserName);
                 // Check if user already exists
                 if (user == null)
                 {
                     // Insert name into the profile table
-                    userRepository.Add(new UserProfile { UserName = model.UserName });
+                    userRepository.Add(new BoardUser { Email = model.UserName });
                     userRepository.Save();
 
                     OAuthWebSecurity.CreateOrUpdateAccount(provider, providerUserId, model.UserName);

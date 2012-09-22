@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace InoutBoard.Core.Infrastructure.Repositories
 {
-    public interface IUserRepository : IRepository<UserProfile>
+    public interface IUserRepository : IRepository<BoardUser>
     {
-        UserProfile GetUserByName(string username);
+        BoardUser GetUserByEmail(string email);
     }
 }

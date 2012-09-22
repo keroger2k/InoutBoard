@@ -1,4 +1,4 @@
-﻿@model IEnumerable<InoutBoard.Core.Models.UserProfile>
+﻿@model IEnumerable<InoutBoard.Core.Models.BoardUser>
 @{
     ViewBag.Title = "Home Page";
 }
@@ -9,7 +9,7 @@
    @* <ul>
         @foreach (var user in Model)
         {
-            <li>@user.UserName</li>
+            <li>@user.Email</li>
         }
     </ul>*@
 </div>

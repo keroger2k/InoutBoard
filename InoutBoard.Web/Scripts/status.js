@@ -2,8 +2,6 @@
 
     $.connection.hub.logging = true;
 
-    $.connection.hub.start();
-
     var status = $.connection.status;
 
     status.joined = function (id, when) {
@@ -26,5 +24,7 @@
     function addMessage(value, color) {
         $('#messages').append('<li style="background-color:' + color + ';color:white">' + value + '</li>');
     }
+
+    $.connection.hub.start();
 
 });

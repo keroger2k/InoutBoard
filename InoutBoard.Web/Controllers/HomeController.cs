@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace InoutBoard.Web.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly IUserRepository _userRepo;

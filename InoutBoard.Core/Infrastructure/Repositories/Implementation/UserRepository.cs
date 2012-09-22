@@ -8,16 +8,16 @@ using System.Threading.Tasks;
 
 namespace InoutBoard.Core.Infrastructure.Repositories.Implementation
 {
-    public class UserRepository : RepositoryBase<UserProfile>, IUserRepository {
+    public class UserRepository : RepositoryBase<BoardUser>, IUserRepository {
         public UserRepository(IDatabaseFactory databaseFactory)
             : base(databaseFactory)
         {
         }
 
-        public UserProfile GetUserByName(string username)
+        public BoardUser GetUserByEmail(string email)
         {
-            return Database.UserProfiles.
-                SingleOrDefault(user => user.UserName.Equals(username, StringComparison.InvariantCultureIgnoreCase));
+            return Database.BoardUsers.
+                SingleOrDefault(user => user.Email.Equals(email, StringComparison.InvariantCultureIgnoreCase));
         }
     }
 }

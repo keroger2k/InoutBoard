@@ -45,11 +45,8 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="WebMatrix.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Infrastructure\Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Infrastructure\Providers\DatabaseFactory.cs" />
     <Compile Include="Infrastructure\Providers\IDatabaseFactory.cs" />
     <Compile Include="Infrastructure\Providers\InoutContext.cs" />
@@ -57,9 +54,14 @@
     <Compile Include="Infrastructure\Repositories\Implementation\UserRepository.cs" />
     <Compile Include="Infrastructure\Repositories\IRepository.cs" />
     <Compile Include="Infrastructure\Repositories\IUserRepository.cs" />
+    <Compile Include="Migrations\201209220354541_Initial.cs" />
+    <Compile Include="Migrations\201209220354541_Initial.Designer.cs">
+      <DependentUpon>201209220354541_Initial.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\IEntity.cs" />
-    <Compile Include="Models\UserProfile.cs" />
+    <Compile Include="Models\Mappings\BoardUserMap.cs" />
+    <Compile Include="Models\BoardUser.cs" />
     <Compile Include="Models\ViewModels\ExternalLogin.cs" />
     <Compile Include="Models\ViewModels\LocalPasswordModel.cs" />
     <Compile Include="Models\ViewModels\LoginModel.cs" />
@@ -70,6 +72,11 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201209220354541_Initial.resx">
+      <DependentUpon>201209220354541_Initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />

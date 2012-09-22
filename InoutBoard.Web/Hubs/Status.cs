@@ -1,4 +1,5 @@
-﻿using SignalR.Hubs;
+﻿using InoutBoard.Core.Infrastructure.Repositories;
+using SignalR.Hubs;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ namespace InoutBoard.Web.Hubs
 
         public Task Connect()
         {
+            //var user = _userRepo.GetUserByEmail(Context.User.Identity.Name);
             return Clients.joined(Context.ConnectionId, DateTime.Now.ToString());
         }
 
